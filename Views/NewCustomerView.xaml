@@ -1,0 +1,186 @@
+﻿<!--Remeber to attach resources. In view don't write texts "from hand" - use resources.-->
+<UserControl x:Class="Firma.Views.NewCustomerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:Firma.ViewModels"
+             xmlns:local="clr-namespace:Firma.Views"
+             xmlns:resx="clr-namespace:Firma.ViewResources"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1920">
+    <!--Attach styles-->
+    <UserControl.Resources>
+        <ResourceDictionary Source="TabsResources.xaml"/>
+    </UserControl.Resources>
+    <d:UserControl.DataContext>
+        <vm:NewCustomerViewModel/>
+    </d:UserControl.DataContext>
+    <ScrollViewer HorizontalScrollBarVisibility="Visible">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <GroupBox Header="{x:Static resx:GlobalResources.PodstawoweDaneKontrahenta}" Margin="3,3,506,3">
+                <Grid HorizontalAlignment="Left" Width="1357">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="182"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Content="{x:Static resx:GlobalResources.Kod}" />
+                    <TextBox Grid.Column="1" Text="{Binding Model.Code}"/>
+                    <Label Content="{x:Static resx:GlobalResources.NIP}" Grid.Column="2"/>
+                    <TextBox Grid.Column="3" Text="{Binding Model.NIP}"/>
+                    <CheckBox IsChecked="{Binding Model.CustomerActive}" Content="{x:Static resx:GlobalResources.KlienAktywny}" Grid.Column="4" Grid.ColumnSpan="3"/>
+                    <Label Content="{x:Static resx:GlobalResources.Regon}" Grid.Column="2" Grid.Row="1"/>
+                    <TextBox Text="{Binding Model.REGON}" Grid.Column="3" Grid.Row="1"/>
+                    <Border Grid.Column="4" Grid.Row="1"  IsEnabled="False" Grid.RowSpan="2">
+                        <StackPanel>
+                            <CheckBox Content="Podmiot gospodarczy" IsChecked="True"/>
+                            <CheckBox Content="Osoba fizyczna"/>
+                        </StackPanel>
+                    </Border>
+                    <Label Content="{x:Static resx:GlobalResources.Rodzaj}" Grid.Column="0" Grid.Row="2"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                        <CheckBox Content="Odb" IsChecked="True"/>
+                        <CheckBox Content="Dost"/>
+                        <CheckBox Content="Konk"/>
+                        <CheckBox Content="Par"/>
+                        <CheckBox Content="Pot"/>
+                    </StackPanel>
+                    <Label Content="{x:Static resx:GlobalResources.Pesel}" Grid.Column="2" Grid.Row="2"/>
+                    <TextBox Text="{Binding Model.PESEL}" Grid.Column="3" Grid.Row="2"/>
+                    <Label Content="{x:Static resx:GlobalResources.Nazwa}" Grid.Column="0" Grid.Row="3"/>
+                    <TextBox Text="{Binding Model.Name1}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="4"/>
+       
+
+                    <GroupBox Header="Grupa rabatowa" Grid.Column="5" Grid.RowSpan="5" >
+                        <StackPanel>
+                            <RadioButton GroupName="DiscountGroup" Content="Grupa 1 - Rabat 5%"/>
+                            <RadioButton GroupName="DiscountGroup" Content="Grupa 2 - Rabat 10%"/>
+                            <RadioButton GroupName="DiscountGroup" Content="Grupa 3 - Rabat 15%"/>
+                            <RadioButton GroupName="DiscountGroup" Content="Grupa 4 - Rabat 20%"/>
+                            <RadioButton GroupName="DiscountGroup" Content="Grupa 5 - Rabat 25%"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="{x:Static resx:GlobalResources.DaneAdresoweKontrahenta}" Grid.Row="1">
+                <Grid>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label  Content="{x:Static resx:GlobalResources.OsobaKontaktowa}"/>
+                            <TextBox Text="{Binding Model.ContanctPerson}" Width="450"/>
+                            <Label Content="{x:Static resx:GlobalResources.EMail}"/>
+                            <TextBox Text="{Binding Model.Email}" Width="120"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{x:Static resx:GlobalResources.EMail2}"/>
+                            <TextBox Text="{Binding Model.Email2}" Width="120"/>
+                            <Label Content="{x:Static resx:GlobalResources.EMail3}"/>
+                            <TextBox Text="{Binding Model.Email3}" Width="120"/>
+                            <Label Content="{x:Static resx:GlobalResources.EMailCC}"/>
+                            <TextBox Text="{Binding Model.EmailCC}" Width="120"/>
+
+                        </StackPanel>
+                    </StackPanel>
+                    <Button Content="Dodaj" Grid.Column="0" Margin="1164,19,0,20"/>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="{x:Static resx:GlobalResources.Handlowe}" Grid.RowSpan="2" Margin="1391,10,80,3">
+                <Grid Height="230">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="24"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label HorizontalAlignment="Center" Content="{x:Static resx:GlobalResources.Kategoria}" Grid.Row="0"/>
+                    <ComboBox Grid.Row="1" IsEnabled="False">
+                        <ComboBoxItem Content="KLIENT VIP" IsSelected="True"/>
+                        <ComboBoxItem Content="Klient biedak" IsSelected="False"/>
+                    </ComboBox>
+
+                    <Label HorizontalAlignment="Center" Content="{x:Static resx:GlobalResources.FormaPlatnosci}" Grid.Row="4"/>
+                    <ComboBox Grid.Row="5" IsEnabled="False">
+                        <ComboBoxItem Content="gotówka" IsSelected="True"/>
+                    </ComboBox>
+                    <CheckBox Content="{x:Static resx:GlobalResources.LimitKupiecki}" Grid.Row="6"/>
+                    <Label HorizontalAlignment="Center" Content="{x:Static resx:GlobalResources.TerminPlatnosci}" Grid.Row="8"/>
+                    <DatePicker SelectedDate="{Binding Model.DateOfPayment}" Grid.Row="9"/>
+
+                    <Label Grid.Row="9" Grid.Column="1" Content="{Binding Model.DateOfPayment, Converter={StaticResource DateTimeInWordsDateConverter}}"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Dodatkowe dane kontrahenta" Grid.Row="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="500"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Data urodzenia" />
+                    <DatePicker Grid.Column="1" SelectedDate="1980-01-01"/>
+                    <Label Content="Telefon" Grid.Row="1"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Text="+48 123 456 789"/>
+                    <Label Content="Telefon dodatkowy" Grid.Row="2"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" Text="+48 987 654 321"/>
+                    <Label Content="Adres e-mail" Grid.Row="3"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" Text="jan.kowalski@example.com"/>
+                </Grid>
+            </GroupBox>
+            <DataGrid Grid.Row="4" Grid.ColumnSpan="2" ItemsSource="{Binding Customers}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{x:Static resx:GlobalResources.ImieINazwisko}" Binding="{Binding Name1}"/>
+                    <DataGridTextColumn Header="{x:Static resx:GlobalResources.TelefonKomorkowy}" Binding="{Binding Mobile}"/>
+                    <DataGridTextColumn Header="{x:Static resx:GlobalResources.EMail}" Binding="{Binding Email}"/>
+                    <DataGridTextColumn Header="{x:Static resx:GlobalResources.NIP}" Binding="{Binding NIP}"/>
+                    <DataGridTextColumn Header="REGON" Binding="{Binding REGON}"/> 
+                    <DataGridTextColumn Header="Data płatności" Binding="{Binding DateOfPayment}"/>
+                    <DataGridCheckBoxColumn Header="Klient aktywny" Binding="{Binding CustomerActive}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>

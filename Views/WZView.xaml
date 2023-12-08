@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Firma.Views.WZView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Firma.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <StackPanel>
+            <Label Content="Numer dokumentu"/>
+            <TextBox x:Name="DocumentNumberTextBox" Text="WZ/123"/>
+            <Label Content="Data wystawienia"/>
+            <DatePicker x:Name="IssueDatePicker" SelectedDate="2023-05-21"/>
+            <Label Content="Data wydania towaru"/>
+            <DatePicker x:Name="ReleaseDatePicker" SelectedDate="2023-05-22"/>
+            <Label Content="Dane wystawiającego"/>
+            <TextBox x:Name="IssuerDataTextBox" Text="Przykładowy wystawiający"/>
+            <Label Content="Dane odbiorcy"/>
+            <TextBox x:Name="RecipientDataTextBox" Text="Przykładowy odbiorca"/>
+            <Label Content="Numer produktu"/>
+            <TextBox x:Name="ProductNumberTextBox" Text="1234"/>
+            <Label Content="Nazwa produktu"/>
+            <TextBox x:Name="ProductNameTextBox" Text="Przykładowy produkt"/>
+            <Label Content="Data produkcji"/>
+            <DatePicker x:Name="ProductionDatePicker" SelectedDate="2023-05-01"/>
+            <Label Content="Sposób pakowania"/>
+            <TextBox x:Name="PackingMethodTextBox" Text="Pakowanie próżniowe"/>
+            <Label Content="Ilość"/>
+            <TextBox x:Name="QuantityTextBox" Text="10"/>
+            <Label Content="Waga netto"/>
+            <TextBox x:Name="NetWeightTextBox" Text="15.00 kg"/>
+            <Label Content="Waga brutto"/>
+            <TextBox x:Name="GrossWeightTextBox" Text="15.50 kg"/>
+            <TextBlock Text=" "/>
+
+            <Button Content="Dodaj WZ" Width="150" Height="50" HorizontalAlignment="Left" />
+
+        </StackPanel>
+    </Grid>
+</UserControl>

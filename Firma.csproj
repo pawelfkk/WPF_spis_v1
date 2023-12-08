@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\24dp.png" />
+    <None Remove="Views\Content\Icons\iconall.png" />
+    <None Remove="Views\Content\Icons\iconclient.png" />
+    <None Remove="Views\Content\Icons\iconext.png" />
+    <None Remove="Views\Content\Icons\iconinv.png" />
+    <None Remove="Views\Content\Icons\iconnewinv.png" />
+    <None Remove="Views\Content\Icons\iconplus.png" />
+    <None Remove="Views\Content\Icons\icons8-bookmark-40.png" />
+    <None Remove="Views\Content\Icons\icons8-folder-48.png" />
+    <None Remove="Views\dwa.png" />
+    <None Remove="Views\Jeden.png" />
+    <None Remove="Views\trzy.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Views\WView.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\Content\Icons\iconall.png" />
+    <Resource Include="Views\Content\Icons\iconext.png" />
+    <Resource Include="Views\Content\Icons\icons8-bookmark-40.png" />
+    <Resource Include="Views\Content\Icons\iconinv.png" />
+    <Resource Include="Views\Content\Icons\iconnewinv.png" />
+    <Resource Include="Views\Content\Icons\iconclient.png" />
+    <Resource Include="Views\Content\Icons\iconplus.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\Content\Icons\Jeden.png" />
+    <Resource Include="Views\dwa.png" />
+    <Resource Include="Views\Jeden.png" />
+    <Resource Include="Views\trzy.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ViewResources\GlobalResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GlobalResources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PZView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\WZView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="ViewResources\GlobalResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GlobalResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
